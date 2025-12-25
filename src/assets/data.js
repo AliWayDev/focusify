@@ -1,37 +1,44 @@
 export const soundDatas = [
   {
     id: 1,
-    title: "Rain",
+    title: "Rainfall",
     volume: 0,
     isActive: false,
     path: "/audios/rain.mp3"
   },
   {
     id: 2,
-    title: "Wind",
+    title: "Breeze",
     volume: 0,
     isActive: false,
     path: "/audios/wind.mp3"
   },
   {
     id: 3,
-    title: "Birds",
+    title: "Forest",
     volume: 0,
     isActive: false,
-    path: "/audios/birds.mp3"
+    path: "/audios/forest.mp3"
   },
   {
     id: 4,
-    title: "Fun - 1",
+    title: "City",
     volume: 0,
     isActive: false,
-    path: "/audios/energetic1.mp3"
+    path: "/audios/city.mp3"
   },
   {
     id: 5,
-    title: "Fun - 2",
+    title: "Cafe",
     volume: 0,
     isActive: false,
-    path: "/audios/energetic2.mp3"
+    path: "/audios/cafe.mp3"
+  },
+  {
+    id: 6,
+    title: "Singing birds",
+    volume: 0,
+    isActive: false,
+    path: "/audios/singing_birds.mp3"
   },
 ];

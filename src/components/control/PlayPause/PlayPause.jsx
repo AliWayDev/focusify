@@ -13,7 +13,7 @@ export const PlayPause = () => {
       <button
         onClick={onPlayPauseHandler}
         style={{
-          border: isPlaying ? "1px solid #51bfe0ff" : "1px solid #fff",
+          border: isPlaying ? "2px solid #51bfe0ff" : "1px solid #fff",
         }}
       >
         {!isPlaying ? "Play" : "Pause"}

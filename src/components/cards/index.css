@@ -43,6 +43,11 @@
 }
 
 .cards_item span {
-    position: absolute;
-    transform: translateY(-30px);
+  position: absolute;
+  transform: translateY(-30px);
+}
+
+.slider::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
 }

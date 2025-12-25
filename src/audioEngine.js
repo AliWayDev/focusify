@@ -10,7 +10,7 @@ let buffers = [];
 let sources = [];
 let soundsGain = [];
 let isInitialized = false;
-let soundChangeDelay = 1
+let soundChangeDelay = 1;
 
 async function loadAudio() {
   if (buffers.length) return;
@@ -25,7 +25,7 @@ async function loadAudio() {
 
 function initSound() {
   if (isInitialized) return;
-  if (sources.length > 4) return;
+  if (sources.length > soundDatas.length) return;
 
   for (let i = 0; i < soundDatas.length; i++) {
     let source = audioContext.createBufferSource();
@@ -50,15 +50,27 @@ function initSound() {
 
 export function play() {
   audioContext.resume();
-  masterGain.gain.setTargetAtTime(1, audioContext.currentTime, soundChangeDelay);
+  masterGain.gain.setTargetAtTime(
+    1,
+    audioContext.currentTime,
+    soundChangeDelay
+  );
 }
 
 export function pause() {
-  masterGain.gain.setTargetAtTime(0, audioContext.currentTime, soundChangeDelay);
+  masterGain.gain.setTargetAtTime(
+    0,
+    audioContext.currentTime,
+    soundChangeDelay
+  );
 }
 
 export function onReset() {
-  masterGain.gain.setTargetAtTime(0, audioContext.currentTime, soundChangeDelay);
+  masterGain.gain.setTargetAtTime(
+    0,
+    audioContext.currentTime,
+    soundChangeDelay
+  );
 
   for (let gainEl of soundsGain) {
     gainEl.gain.setTargetAtTime(0, audioContext.currentTime, soundChangeDelay);
@@ -81,5 +93,9 @@ export async function startAudioEngine() {
 }
 
 export async function onResetClick() {
-  masterGain.gain.setTargetAtTime(0, audioContext.currentTime, soundChangeDelay);
+  masterGain.gain.setTargetAtTime(
+    0,
+    audioContext.currentTime,
+    soundChangeDelay
+  );
 }

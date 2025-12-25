@@ -6,7 +6,7 @@ export const CardsItem = ({ id, title, volume, isActive, onVolumeChange }) => {
       className="cards_item"
       style={{
         "--intensity": volume,
-        border: isActive && "1px solid #293a5fff",
+        border: isActive && "2px solid #82d1ffff",
       }}
     >
       {!isActive && (
@@ -14,7 +14,7 @@ export const CardsItem = ({ id, title, volume, isActive, onVolumeChange }) => {
           <img src={MuteIcon} alt="mute" />
         </span>
       )}
-      <p style={{ color: isActive && "#0395e9ff" }}>{title}</p>
+      <p style={{ color: isActive && "#82d1ffff", fontWeight: 600 }}>{title}</p>
       <input
         type="range"
         min="0.0"
