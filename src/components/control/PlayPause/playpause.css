@@ -1,0 +1,25 @@
+.playpause button {
+  width: 120px;
+  height: 45px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0px;
+  color: #fff;
+
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.playpause span {
+    transform: translateY(3px);
+}

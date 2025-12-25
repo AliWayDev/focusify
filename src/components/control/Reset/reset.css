@@ -1,0 +1,26 @@
+.reset button {
+  padding: 6px 12px;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+
+  font-family: "Quicksand", sans-serif;
+  font-size: 14px;
+
+  border: 1px solid #3a4953;
+  border-radius: 30px;
+
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.reset span {
+  transform: translateY(1px);
+}
