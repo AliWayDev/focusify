@@ -3,6 +3,7 @@ import { soundDatas } from "./assets/data";
 const audioContext = new AudioContext();
 
 const masterGain = audioContext.createGain();
+
 masterGain.gain.value = 0;
 masterGain.connect(audioContext.destination);
 
