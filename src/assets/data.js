@@ -4,21 +4,21 @@ export const soundDatas = [
     title: "Rainfall",
     volume: 0,
     isActive: false,
-    path: "/audios/rain.mp3"
+    path: "https://pub-82d7442bab8d452c85c1ae19021bb34a.r2.dev/rain.mp3"
   },
   {
     id: 2,
     title: "Breeze",
     volume: 0,
     isActive: false,
-    path: "/audios/wind.mp3"
+    path: "https://pub-82d7442bab8d452c85c1ae19021bb34a.r2.dev/wind.mp3"
   },
   {
     id: 3,
     title: "Forest",
     volume: 0,
     isActive: false,
-    path: "/audios/forest.mp3"
+    path: "https://pub-82d7442bab8d452c85c1ae19021bb34a.r2.dev/forest.mp3"
   },
   // {
   //   id: 4,
@@ -29,10 +29,10 @@ export const soundDatas = [
   // },
   {
     id: 4,
-    title: "Cafe",
+    title: "40Hz Binaural Beats",
     volume: 0,
     isActive: false,
-    path: "/audios/cafe.mp3"
+    path: "https://pub-82d7442bab8d452c85c1ae19021bb34a.r2.dev/boost.mp3"
   },
   // {
   //   id: 6,

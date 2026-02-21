@@ -9,11 +9,14 @@ import "./App.css";
 import { useSoundMixer } from "./hooks/useSoundMixer";
 import { SoundContext } from "./components/context/soundMixerContext";
 import { Loader } from "./components/loader/Loader";
-
-startAudioEngine();
+import { useEffect } from "react";
 
 function App() {
   const soundMixer = useSoundMixer();
+
+  useEffect(() => {
+      startAudioEngine(soundMixer.setIsSoundsLoaded);
+  }, [soundMixer.setIsSoundsLoaded]);
 
   return (
     <div className="App">

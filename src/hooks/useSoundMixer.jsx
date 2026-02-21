@@ -1,17 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { onReset, pause, play, setVolume } from "../audioEngine";
 import { soundDatas } from "../assets/data";
 
 export const useSoundMixer = () => {
   const [isSoundsLoaded, setIsSoundsLoaded] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [soundsData, setSoundsData] = useState(soundDatas);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsSoundsLoaded(false);
-    }, 2000);
-  }, []);
+  const [soundsData, setSoundsData] = useState(soundDatas); 
 
   const onPlayPauseHandler = () => {
     if (isPlaying) {
@@ -55,5 +49,6 @@ export const useSoundMixer = () => {
     onResetHandler,
     onVolumeChange,
     isSoundsLoaded,
+    setIsSoundsLoaded
   };
 };

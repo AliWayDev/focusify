@@ -7,7 +7,7 @@ export const Header = () => {
 
   return (
     <div className="title">
-      <p>FOCUS • efficiency</p> {isPlaying && <div class="pulse"></div>}
+      <p>FOCUS • efficiency</p> {isPlaying && <div className="pulse"></div>}
     </div>
   );
 };
