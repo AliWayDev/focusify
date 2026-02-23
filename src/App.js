@@ -11,6 +11,7 @@ import "./App.css";
 import { useSoundMixer } from "./hooks/useSoundMixer";
 import { SoundContext } from "./components/context/soundMixerContext";
 import { Loader } from "./components/loader/Loader";
+import { Share } from "./components/control/Share/Share";
 
 function App() {
   const soundMixer = useSoundMixer();
@@ -26,7 +27,10 @@ function App() {
           <Header />
           <div className="controlls">
             <PlayPause />
-            <Reset />
+            <div className="controlls-sub">
+              <Reset />
+              <Share />
+            </div>
           </div>
           {soundMixer.isSoundsLoaded ? (
             <Loader />
