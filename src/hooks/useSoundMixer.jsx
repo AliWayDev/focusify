@@ -1,21 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { onReset, pause, play, setVolume } from "../audioEngine";
 import { soundDatas } from "../assets/data";
 
 export const useSoundMixer = () => {
   const [isSoundsLoaded, setIsSoundsLoaded] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [soundsData, setSoundsData] = useState(soundDatas); 
+  const [soundsData, setSoundsData] = useState(soundDatas);
+
+  useEffect(() => {
+    const preset = JSON.parse(window.localStorage.getItem('focusify:preset:v1'))
+
+    if(preset?.length > 0) {
+      let updatedList = preset.map((i) => {
+        return { ...i, volume: i.volume };
+      });
+  
+      setSoundsData(updatedList)
+    }
+  }, [])
 
   const onPlayPauseHandler = () => {
+    const preset = JSON.parse(window.localStorage.getItem('focusify:preset:v1'))
+
     if (isPlaying) {
       pause();
       setIsPlaying(false);
       return;
     }
 
-    play();
+    play(preset);
     setIsPlaying(true);
+
+    presetSaver(soundsData);
   };
 
   const onResetHandler = () => {
@@ -27,6 +43,8 @@ export const useSoundMixer = () => {
     setIsPlaying(false);
 
     onReset();
+
+    presetSaver(updatedList);
   };
 
   const onVolumeChange = (value, id) => {
@@ -40,6 +58,12 @@ export const useSoundMixer = () => {
     });
 
     setSoundsData(updatedList);
+
+    presetSaver(updatedList);
+  };
+
+  const presetSaver = (data = []) => {
+    window.localStorage.setItem('focusify:preset:v1', JSON.stringify(data))
   };
 
   return {
@@ -49,6 +73,6 @@ export const useSoundMixer = () => {
     onResetHandler,
     onVolumeChange,
     isSoundsLoaded,
-    setIsSoundsLoaded
+    setIsSoundsLoaded,
   };
 };

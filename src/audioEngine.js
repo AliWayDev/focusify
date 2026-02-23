@@ -33,11 +33,19 @@ async function loadAudio(onLoaded) {
   }
 }
 
-export function initSound() {
-  if (isInitialized) return;
-  if (sources.length > soundDatas.length) return;
+export function initSound(presetInfo) {
+  let soundData = []
 
-  for (let i = 0; i < soundDatas.length; i++) {
+  if(presetInfo?.length > 0) {
+    soundData = presetInfo
+  } else {
+    soundData = soundDatas
+  }
+
+  if (isInitialized) return;
+  if (sources.length > soundData.length) return;
+
+  for (let i = 0; i < soundData.length; i++) {
     let source = audioContext.createBufferSource();
     source.buffer = buffers[i];
     source.loop = true;
@@ -45,7 +53,7 @@ export function initSound() {
     sources.push(source);
 
     let soundGain = audioContext.createGain();
-    soundGain.gain.value = 0;
+    soundGain.gain.value = soundData[i].volume || 0;
 
     soundsGain.push(soundGain);
 
@@ -58,9 +66,9 @@ export function initSound() {
   isInitialized = true;
 }
 
-export function play() {
+export function play(presetInfo) {
   if (!isInitialized) {
-    initSound();
+    initSound(presetInfo);
   }
 
   audioContext.resume();
