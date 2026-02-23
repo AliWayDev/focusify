@@ -19,7 +19,6 @@ async function loadAudio(onLoaded) {
 
   for (let i = 0; i < soundDatas.length; i++) {
     const response = await fetch(soundDatas[i].path);
-    console.log(soundDatas[i].title);
     const arrayBuffer = await response.arrayBuffer();
     let buffer = await audioContext.decodeAudioData(arrayBuffer);
 

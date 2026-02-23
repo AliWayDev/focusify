@@ -1,16 +1,11 @@
 .loader_wrapper {
-    position: absolute;
-
-    width: 100dvw;
-    height: 100dvh;
-
     display: flex;
     justify-content: center;
     align-items: center;
 
     background: #0b0e19;
 
-    z-index: 2;
+    margin-top: 50px;
 }
 
 .loader {

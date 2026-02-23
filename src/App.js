@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import { Cards } from "./components/cards";
 import { PlayPause } from "./components/control/PlayPause/PlayPause";
 import { Reset } from "./components/control/Reset/Reset";
@@ -9,32 +11,31 @@ import "./App.css";
 import { useSoundMixer } from "./hooks/useSoundMixer";
 import { SoundContext } from "./components/context/soundMixerContext";
 import { Loader } from "./components/loader/Loader";
-import { useEffect } from "react";
 
 function App() {
   const soundMixer = useSoundMixer();
 
   useEffect(() => {
-      startAudioEngine(soundMixer.setIsSoundsLoaded);
+    startAudioEngine(soundMixer.setIsSoundsLoaded);
   }, [soundMixer.setIsSoundsLoaded]);
 
   return (
     <div className="App">
       <SoundContext value={soundMixer}>
-        {soundMixer.isSoundsLoaded ? (
-          <Loader />
-        ) : (
-          <div>
-            <Header />
-            <div className="controlls">
-              <PlayPause />
-              <Reset />
-            </div>
+        <div>
+          <Header />
+          <div className="controlls">
+            <PlayPause />
+            <Reset />
+          </div>
+          {soundMixer.isSoundsLoaded ? (
+            <Loader />
+          ) : (
             <div>
               <Cards />
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </SoundContext>
       {/* <Footer /> */}
     </div>

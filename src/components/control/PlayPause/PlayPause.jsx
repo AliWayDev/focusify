@@ -6,11 +6,12 @@ import PauseSvg from "../../../assets/icons/pause.svg";
 import "./playpause.css";
 
 export const PlayPause = () => {
-  const { isPlaying, onPlayPauseHandler } = useContext(SoundContext);
+  const { isPlaying, onPlayPauseHandler, isSoundsLoaded } = useContext(SoundContext);
 
   return (
     <div className="playpause">
       <button
+        disabled={isSoundsLoaded}
         onClick={onPlayPauseHandler}
         style={{
           border: isPlaying ? "2px solid #51bfe0ff" : "1px solid #fff",

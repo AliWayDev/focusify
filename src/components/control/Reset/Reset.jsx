@@ -5,11 +5,11 @@ import ResetIcon from "../../../assets/icons/reset.svg";
 import "./reset.css";
 
 export const Reset = () => {
-  const { onResetHandler } = useContext(SoundContext);
+  const { onResetHandler, isSoundsLoaded } = useContext(SoundContext);
 
   return (
     <div className="reset">
-      <button onClick={onResetHandler}>
+      <button disabled={isSoundsLoaded} onClick={onResetHandler}>
         Reset
         <span>
           <img src={ResetIcon} alt="reset icons" />
