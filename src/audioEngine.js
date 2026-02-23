@@ -34,12 +34,12 @@ async function loadAudio(onLoaded) {
 }
 
 export function initSound(presetInfo) {
-  let soundData = []
+  let soundData = [];
 
-  if(presetInfo?.length > 0) {
-    soundData = presetInfo
+  if (presetInfo?.length > 0) {
+    soundData = presetInfo;
   } else {
-    soundData = soundDatas
+    soundData = soundDatas;
   }
 
   if (isInitialized) return;
@@ -53,7 +53,9 @@ export function initSound(presetInfo) {
     sources.push(source);
 
     let soundGain = audioContext.createGain();
-    soundGain.gain.value = soundData[i].volume || 0;
+
+    soundGain.gain.value =
+      (soundData[i].volume > 1 ? 1 : soundData[i].volume) || 0;
 
     soundsGain.push(soundGain);
 
@@ -111,7 +113,7 @@ export function setVolume(value, id) {
   if (!id) return;
 
   soundsGain[id - 1].gain.setTargetAtTime(
-    value,
+    value > 1 ? 1 : value,
     audioContext.currentTime,
     soundChangeDelay,
   );

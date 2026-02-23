@@ -19,6 +19,12 @@
   justify-content: center;
 
   gap: 10px;
+
+  transition: 0.2s linear;
+}
+
+.playpause button:hover {
+  background-color: rgba(5, 115, 148, 0.445);
 }
 
 .playpause span {

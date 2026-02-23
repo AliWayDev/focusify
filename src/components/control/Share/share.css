@@ -1,0 +1,33 @@
+.share button {
+  padding: 6px 12px;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+
+  font-family: "Quicksand", sans-serif;
+  font-size: 14px;
+
+  border: 1px solid rgb(5, 114, 148);
+  border-radius: 30px;
+
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  transition: 0.2s linear;
+}
+
+.share button:hover {
+  background-color: rgba(2, 97, 126, 0.329);
+}
+
+.share span {
+  transform: translateY(1px);
+}
